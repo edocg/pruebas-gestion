@@ -26,6 +26,6 @@ Con ansible instalado creamos los archivos deploy.yml y hosts.ini que encuentras
 Y finalmente ejecutas el playbook deploy.yml mediante el comando
 
 ```sh
-ansible-playbook -i hosts.ini deploy.yml
+ansible-playbook -i hosts.ini deploy.yml -K
 ```
 # pruebas-gestion
