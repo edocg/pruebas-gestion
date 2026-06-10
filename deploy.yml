@@ -1,0 +1,24 @@
+---
+- name: Configurar Nginx y Desplegar Sitio
+  hosts: webservers
+  become: true
+  tasks:
+    - name: Instalar nginx
+      apt:
+        name: nginx
+        state: present
+        update_cache: true
+
+    - name: Asegurar que Nginx está encendido
+      service:
+        name: nginx
+        state: started
+        enabled: true
+
+    - name: Desplegar los archivos del sitio web
+      copy:
+        src: dist/
+        dest: /var/www/html/
+        owner: www-data
+        group: www-data
+        mode: '0755'
